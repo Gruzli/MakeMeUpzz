@@ -1,17 +1,18 @@
-﻿using System;
+﻿using MakeMeUpzz.Model;
+using MakeMeUpzz.Repository;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MakeMeUpzz.Models;
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class Register1 : System.Web.UI.Page
     {
-        Database1Entities1 db = new Database1Entities1();
-
+        UserRepository userRepo = new UserRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
             Err.Visible = false;
@@ -19,10 +20,9 @@ namespace Test.View
 
         protected int generateId()
         {
-            int lastId = db.Users.OrderByDescending(x => x.UserID).Select(x => x.UserID).FirstOrDefault();
+            int lastId = userRepo.Users.OrderByDescending(x => x.UserID).Select(x => x.UserID).FirstOrDefault();
             return lastId + 1;
         }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TbUsername.Text))
@@ -104,8 +104,8 @@ namespace Test.View
                     UserRole = "Admin"
                 };
 
-                db.Users.Add(user);
-                db.SaveChanges();
+                userRepo.Users.Add(user);
+                userRepo.SaveChanges();
 
                 // Redirect to the login page
                 Response.Redirect("Login.aspx");
@@ -126,11 +126,6 @@ namespace Test.View
         {
             Err.Visible = true;
             Err.Text = msg;
-        }
-
-        protected void Male_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

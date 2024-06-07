@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
 
 
-    public partial class Register
+    public partial class Register1
     {
 
         /// <summary>
