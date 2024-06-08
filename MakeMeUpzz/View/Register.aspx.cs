@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
+using MakeMeUpzz.Reposiitory;
 
 namespace Test.View
 {
     public partial class Register : System.Web.UI.Page
     {
-        Database1Entities2 db = new Database1Entities2();
+        UserRepository userRepo = new UserRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +20,7 @@ namespace Test.View
 
         protected int generateId()
         {
-            int lastId = db.Users.OrderByDescending(x => x.UserID).Select(x => x.UserID).FirstOrDefault();
+            int lastId = userRepo.Users.OrderByDescending(x => x.UserID).Select(x => x.UserID).FirstOrDefault();
             return lastId + 1;
         }
 
@@ -85,52 +86,32 @@ namespace Test.View
                 return;
             }
 
-            try
+            int newId = generateId();
+            String newUsername = TbUsername.Text;
+            String newEmail = TbEmail.Text;
+            String newGender = Male.Checked ? Male.Text : Female.Text;
+            String newPassword = TbPassword.Text;
+
+            User user = new User
             {
-                int newId = generateId();
-                string newUsername = TbUsername.Text;
-                string newEmail = TbEmail.Text;
-                string newGender = Male.Checked ? Male.Text : Female.Text;
-                string newPassword = TbPassword.Text;
+                UserID = newId,
+                Username = newUsername,
+                UserGender = newGender,
+                UserPassword = newPassword,
+                UserEmail = newEmail,
+                UserDOB = newDOB,
+                UserRole = "Admin"
 
-                User user = new User
-                {
-                    UserID = newId,
-                    Username = newUsername,
-                    UserGender = newGender,
-                    UserPassword = newPassword,
-                    UserEmail = newEmail,
-                    UserDOB = newDOB,
-                    UserRole = "Admin"
-                };
-
-                db.Users.Add(user);
-                db.SaveChanges();
-
-                // Redirect to the login page
-                Response.Redirect("Login.aspx");
-            }
-            catch (DbEntityValidationException ex)
-            {
-                foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        showError($"{validationError.PropertyName}: {validationError.ErrorMessage}");
-                    }
-                }
-            }
+            };
+            db.Users.Add(user);
+            db.SaveChanges();
+            Response.Redirect("Login.aspx");
         }
 
         private void showError(string msg)
         {
             Err.Visible = true;
             Err.Text = msg;
-        }
-
-        protected void Male_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
