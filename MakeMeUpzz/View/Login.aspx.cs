@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MakeMeUpzz.Models;
+using MakeMeUpzz.Model;
 
 namespace Test.View
 {
     public partial class Login : System.Web.UI.Page
     {
-        Database1Entities1 db = new Database1Entities1();
+        Database1Entities2 db = new Database1Entities2();
         protected void Page_Load(object sender, EventArgs e)
         {
             Err.Visible = false;

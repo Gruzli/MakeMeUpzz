@@ -9,7 +9,6 @@ namespace MakeMeUpzz.Reposiitory
     {
         public Repository()
         {
-            
 
         }
     }
