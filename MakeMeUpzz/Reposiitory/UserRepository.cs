@@ -9,7 +9,7 @@ namespace MakeMeUpzz.Reposiitory
 {
     public class UserRepository
     {
-        Database1Entities2 db = new Database1Entities2();
+        private Database1Entities2 db = new Database1Entities2();
 
         public int generateId()
         {
@@ -25,6 +25,11 @@ namespace MakeMeUpzz.Reposiitory
         public void SaveChanges()
         {
             db.SaveChanges();
+        }
+
+        public User ValidateUser(string email, string password)
+        {
+            return db.Users.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
         }
     }
 }
