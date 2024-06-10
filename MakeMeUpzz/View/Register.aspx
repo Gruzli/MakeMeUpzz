@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Test.View.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="MakeMeUpzz.View.Register" %>
 
 <!DOCTYPE html>
 
@@ -18,7 +18,7 @@
         </div>
         <div>
             <asp:Label ID="Label3" runat="server" Text="Gender"></asp:Label>
-            <asp:RadioButton ID="Male" runat="server" Text="Male" GroupName="gender" OnCheckedChanged="Male_CheckedChanged" />
+            <asp:RadioButton ID="Male" runat="server" Text="Male" GroupName="gender"/>
             <asp:RadioButton ID="Female" runat="server" Text="Female" GroupName="gender"/>
         </div>
         <div>

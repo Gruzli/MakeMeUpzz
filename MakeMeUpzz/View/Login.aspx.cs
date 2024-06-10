@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
     public partial class Login : System.Web.UI.Page
     {
