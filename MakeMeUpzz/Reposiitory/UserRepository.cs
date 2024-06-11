@@ -19,11 +19,8 @@ namespace MakeMeUpzz.Reposiitory
 
         public void InputRegisterUser(User user)
         {
-            if(user != null)
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-            }
+            db.Users.Add(user);
+            db.SaveChanges();
         }
 
         public bool Authentication(string username, string password)

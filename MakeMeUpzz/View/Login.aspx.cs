@@ -45,7 +45,7 @@ namespace MakeMeUpzz.View
                 {
                     HttpCookie cookie = new HttpCookie("user_cookies");
                     cookie.Value = username;
-                    cookie.Expires = DateTime.Now.AddHours(2);
+                    cookie.Expires = DateTime.Now.AddHours(5);
                     Response.Cookies.Add(cookie);
                 }
 
