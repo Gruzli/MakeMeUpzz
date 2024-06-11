@@ -17,19 +17,19 @@ namespace MakeMeUpzz.Reposiitory
             return lastId + 1;
         }
 
-        public User addUser(User user)
+        public void InputRegisterUser(User user)
         {
-            return db.Users.Add(user);
+            if(user != null)
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
         }
 
-        public void SaveChanges()
+        public bool Authentication(string username, string password)
         {
-            db.SaveChanges();
-        }
-
-        public User ValidateUser(string email, string password)
-        {
-            return db.Users.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
+            var users =  db.Users.Any(u => u.Username == username && u.UserPassword == password);
+            return users;
         }
     }
 }

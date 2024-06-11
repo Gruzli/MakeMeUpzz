@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
 using MakeMeUpzz.Reposiitory;
+using MakeMeUpzz.Factory;
 
 namespace MakeMeUpzz.View
 {
@@ -85,20 +86,10 @@ namespace MakeMeUpzz.View
             String newEmail = TbEmail.Text;
             String newGender = Male.Checked ? Male.Text : Female.Text;
             String newPassword = TbPassword.Text;
+            String newRole = "Customer";
 
-            User user = new User
-            {
-                UserID = newId,
-                Username = newUsername,
-                UserGender = newGender,
-                UserPassword = newPassword,
-                UserEmail = newEmail,
-                UserDOB = newDOB,
-                UserRole = "Guest"
-
-            };
-            userRepo.addUser(user);
-            userRepo.SaveChanges();
+            User user = RegisterUserFactory.Create(newId, newUsername, newGender, newPassword, newEmail, newDOB, newRole);
+            userRepo.InputRegisterUser(user);
             Response.Redirect("Login.aspx");
         }
 
