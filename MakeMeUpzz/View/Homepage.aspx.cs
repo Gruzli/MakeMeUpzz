@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
     public partial class Homepage : System.Web.UI.Page
     {

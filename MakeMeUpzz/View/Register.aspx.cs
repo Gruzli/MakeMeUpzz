@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
 using MakeMeUpzz.Reposiitory;
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
     public partial class Register : System.Web.UI.Page
     {
@@ -16,12 +16,6 @@ namespace Test.View
         protected void Page_Load(object sender, EventArgs e)
         {
             Err.Visible = false;
-        }
-
-        protected int generateId()
-        {
-            int lastId = userRepo.Users.OrderByDescending(x => x.UserID).Select(x => x.UserID).FirstOrDefault();
-            return lastId + 1;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -86,7 +80,7 @@ namespace Test.View
                 return;
             }
 
-            int newId = generateId();
+            int newId = userRepo.generateId();
             String newUsername = TbUsername.Text;
             String newEmail = TbEmail.Text;
             String newGender = Male.Checked ? Male.Text : Female.Text;
@@ -100,11 +94,11 @@ namespace Test.View
                 UserPassword = newPassword,
                 UserEmail = newEmail,
                 UserDOB = newDOB,
-                UserRole = "Admin"
+                UserRole = "Guest"
 
             };
-            db.Users.Add(user);
-            db.SaveChanges();
+            userRepo.addUser(user);
+            userRepo.SaveChanges();
             Response.Redirect("Login.aspx");
         }
 

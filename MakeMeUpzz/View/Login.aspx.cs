@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
+using MakeMeUpzz.Reposiitory;
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
     public partial class Login : System.Web.UI.Page
     {
-        Database1Entities2 db = new Database1Entities2();
+        UserRepository userRepo = new UserRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
             Err.Visible = false;
@@ -33,7 +34,7 @@ namespace Test.View
                 return;
             }
 
-            var user = db.Users.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
+            var user = userRepo.ValidateUser(email, password);
             if (user != null)
             {
                 // Successfully logged in

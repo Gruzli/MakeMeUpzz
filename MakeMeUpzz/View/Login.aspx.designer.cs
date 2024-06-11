@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test.View
+namespace MakeMeUpzz.View
 {
 
 
