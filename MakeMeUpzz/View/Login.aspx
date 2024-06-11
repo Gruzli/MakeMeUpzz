@@ -25,7 +25,7 @@
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
         <div>
             <asp:Label ID="Label1" runat="server" Text="Don't have account yet? "></asp:Label>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/View/Register.aspx">register here</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/View/Register.aspx">register here </asp:HyperLink>
         </div>
     </form>
 </body>
