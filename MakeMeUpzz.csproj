@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Factory\Factory.cs" />
+    <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\Handler.cs" />
     <Compile Include="Model\Cart.cs">
       <DependentUpon>Model1.tt</DependentUpon>

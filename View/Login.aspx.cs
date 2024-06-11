@@ -19,12 +19,14 @@ namespace MakeMeUpzz.View
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string email = TbEmail.Text;
+            string username = TbUsername.Text;
             string password = TbPassword.Text;
+            bool isRemember = RememberMe.Checked;
 
-            if (string.IsNullOrEmpty(email))
+
+            if (string.IsNullOrEmpty(username))
             {
-                showError("Email cannot be empty!");
+                showError("Username cannot be empty!");
                 return;
             }
 
@@ -33,18 +35,21 @@ namespace MakeMeUpzz.View
                 showError("Password cannot be empty!");
                 return;
             }
+            bool isAuthenticated = userRepo.isAuthenticate(username, password);
 
-            var user = userRepo.ValidateUser(email, password);
-            if (user != null)
+            if (isAuthenticated)
             {
-                // Successfully logged in
-                Session["UserId"] = user.UserID;
-                Session["Username"] = user.Username;
+                Session["user"] = isAuthenticated;
+                HttpCookie cookie = new HttpCookie("user_cookies");
+                cookie.Value = username;
+                cookie.Expires = DateTime.Now.AddHours(5);
+                Response.Cookies.Add(cookie);
                 Response.Redirect("Homepage.aspx");
             }
             else
             {
                 showError("Invalid email or password!");
+                return;
             }
         }
 

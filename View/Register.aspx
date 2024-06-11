@@ -9,34 +9,38 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
+            <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
             <asp:TextBox ID="TbUsername" runat="server"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label2" runat="server" Text="Email" TextMode="email"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="Email" TextMode="email"></asp:Label>
             <asp:TextBox ID="TbEmail" runat="server" TextMode="Email"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label3" runat="server" Text="Gender"></asp:Label>
+            <asp:Label ID="lblGender" runat="server" Text="Gender"></asp:Label>
             <asp:RadioButton ID="Male" runat="server" Text="Male" GroupName="gender"/>
             <asp:RadioButton ID="Female" runat="server" Text="Female" GroupName="gender"/>
         </div>
         <div>
-            <asp:Label ID="Label4" runat="server" Text="Password"></asp:Label>
+            <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="TbPassword" runat="server" TextMode="Password"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label5" runat="server" Text="Confirmation Password"></asp:Label>
+            <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirmation Password"></asp:Label>
             <asp:TextBox ID="TbConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
         </div>
         <div>
-            <asp:Label ID="Label6" runat="server" Text="Date of Birth"></asp:Label>
+            <asp:Label ID="lblDOB" runat="server" Text="Date of Birth"></asp:Label>
             <asp:TextBox ID="TbDOB" runat="server" TextMode="Date"></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="Err" runat="server" Text="Label" ForeColor="Red"></asp:Label>
         </div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+        <div>
+            <asp:Label ID="lblRedirectLogin" runat="server" Text="Already have account? "></asp:Label>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/View/Login.aspx">login here</asp:HyperLink>
+        </div>
     </form>
 </body>
 </html>

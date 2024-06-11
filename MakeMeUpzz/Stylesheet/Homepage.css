@@ -1,0 +1,14 @@
+﻿body {
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    background-color: green;
+    width: 100%;
+}
+
+.navbar .nav-item-right{
+    display: flex;
+    justify-content: flex-end;
+}
