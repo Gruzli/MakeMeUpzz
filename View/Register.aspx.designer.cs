@@ -24,13 +24,13 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
 
         /// <summary>
         /// TbUsername control.
@@ -42,13 +42,13 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.WebControls.TextBox TbUsername;
 
         /// <summary>
-        /// Label2 control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
         /// TbEmail control.
@@ -60,13 +60,13 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.WebControls.TextBox TbEmail;
 
         /// <summary>
-        /// Label3 control.
+        /// lblGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblGender;
 
         /// <summary>
         /// Male control.
@@ -87,13 +87,13 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.WebControls.RadioButton Female;
 
         /// <summary>
-        /// Label4 control.
+        /// lblPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lblPassword;
 
         /// <summary>
         /// TbPassword control.
@@ -105,13 +105,13 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.WebControls.TextBox TbPassword;
 
         /// <summary>
-        /// Label5 control.
+        /// lblConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
 
         /// <summary>
         /// TbConfirmPassword control.
@@ -123,13 +123,13 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.WebControls.TextBox TbConfirmPassword;
 
         /// <summary>
-        /// Label6 control.
+        /// lblDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label lblDOB;
 
         /// <summary>
         /// TbDOB control.
@@ -157,5 +157,23 @@ namespace MakeMeUpzz.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// lblRedirectLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRedirectLogin;
+
+        /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
     }
 }
