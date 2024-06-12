@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
-using MakeMeUpzz.Reposiitory;
+using MakeMeUpzz.Repository;
 
 namespace MakeMeUpzz.View
 {
@@ -39,17 +39,18 @@ namespace MakeMeUpzz.View
 
             if (isAuthenticated)
             {
-                Session["user"] = isAuthenticated;
+                var user = userRepo.getUserByUsername(username);
+                Session["user"] = user;
 
                 if (isRemember)
                 {
                     HttpCookie cookie = new HttpCookie("user_cookies");
-                    cookie.Value = username;
+                    cookie.Value = user.UserID.ToString();
                     cookie.Expires = DateTime.Now.AddHours(5);
                     Response.Cookies.Add(cookie);
                 }
 
-                Response.Redirect("Homepage.aspx");
+                Response.Redirect("Home.aspx");
             }   
             else
             {

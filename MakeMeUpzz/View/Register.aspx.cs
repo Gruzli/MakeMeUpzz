@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
-using MakeMeUpzz.Reposiitory;
+using MakeMeUpzz.Repository;
 using MakeMeUpzz.Factory;
 
 namespace MakeMeUpzz.View
