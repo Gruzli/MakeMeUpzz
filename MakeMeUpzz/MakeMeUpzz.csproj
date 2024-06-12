@@ -94,7 +94,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Factory\RegisterUserFactory.cs" />
     <Compile Include="Handler\Handler.cs" />
     <Compile Include="Model\Cart.cs">
