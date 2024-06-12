@@ -1,0 +1,10 @@
+﻿body {
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    background-color: gray;
+    width: 100%;
+    justify-content: space-between
+}

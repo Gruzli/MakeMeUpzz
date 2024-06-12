@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="MakeMeUpzz.View.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>MakeMeUpzz</title>
+    <link rel="stylesheet" href="~/Stylesheet/Style.css"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="navbar">
+                <a href="Login.aspx">Order Makeup</a>
+                <a href="Login.aspx">History</a>
+                <a class="nav-item-right">Profile</a>
+                <a class="nav-item-right">Logout</a>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
