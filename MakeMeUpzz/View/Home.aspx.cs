@@ -16,6 +16,12 @@ namespace MakeMeUpzz.View
         {
             customerDataLbl.Visible = false;
             customerGrid.Visible = false;
+            homeBtn.Visible = false;
+            manageMakeupBtn.Visible = false;
+            orderQueueBtn.Visible = false;
+            transactionReportBtn.Visible = false;
+
+
             if (Session["user"] == null && Request.Cookies["user_cookies"] == null)
             {
                 Response.Redirect("Login.aspx");
@@ -37,12 +43,15 @@ namespace MakeMeUpzz.View
                 {
                     customerDataLbl.Visible = true;
                     customerGrid.Visible = true;
+                    homeBtn.Visible = true;
+                    manageMakeupBtn.Visible = true;
+                    orderQueueBtn.Visible = true;
+                    transactionReportBtn.Visible = true;
 
                     List<User> users = userRepo.getAllUser();
 
                     customerGrid.DataSource = users;
                     customerGrid.DataBind();
-
 
                 }
             }
