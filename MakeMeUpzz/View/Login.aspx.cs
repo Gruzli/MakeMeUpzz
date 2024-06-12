@@ -50,7 +50,7 @@ namespace MakeMeUpzz.View
                     Response.Cookies.Add(cookie);
                 }
 
-                Response.Redirect("Home.aspx");
+                Response.Redirect("HomePage.aspx");
             }   
             else
             {

@@ -88,7 +88,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Stylesheet\Home.css" />
-    <Content Include="View\Home.aspx" />
+    <Content Include="View\HomePage.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\ManageMakeup.aspx" />
     <Content Include="View\Register.aspx" />
@@ -140,12 +140,12 @@
     <Compile Include="Repository\MakeupRepository.cs" />
     <Compile Include="Repository\MakeupTypeRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
-    <Compile Include="View\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="View\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="View\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -160,6 +160,13 @@
     </Compile>
     <Compile Include="View\ManageMakeup.aspx.designer.cs">
       <DependentUpon>ManageMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="View\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -178,6 +185,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="View\MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
