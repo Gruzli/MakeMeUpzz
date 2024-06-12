@@ -88,6 +88,8 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Stylesheet\Home.css" />
+    <Content Include="Stylesheet\Login.css" />
+    <Content Include="Stylesheet\Register.css" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\Login.aspx" />
     <Content Include="View\ManageMakeup.aspx" />
