@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MakeMeUpzz.Model;
 using MakeMeUpzz.Repository;
 using MakeMeUpzz.Factory;
+using MakeMeUpzz.Controller;
 
 namespace MakeMeUpzz.View
 {
@@ -21,57 +22,45 @@ namespace MakeMeUpzz.View
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TbUsername.Text))
+            string response = UserController.checkUsername(TbUsername.Text);
+            if (!string.IsNullOrEmpty(response))
             {
-                showError("Username cannot be empty!");
+                showError(response);
                 return;
             }
 
-            if (TbUsername.Text.Length < 5 || TbUsername.Text.Length > 15)
+            response = UserController.checkEmail(TbEmail.Text);
+            if (!string.IsNullOrEmpty(response))
             {
-                showError("Username must be between 5 to 15 characters!");
+                showError(response);
                 return;
             }
 
-            if (string.IsNullOrEmpty(TbEmail.Text))
+            response = UserController.checkGender(Male.Checked, Female.Checked);
+            if (!string.IsNullOrEmpty(response))
             {
-                showError("Email cannot be empty!");
+                showError(response);
                 return;
             }
 
-            if (!TbEmail.Text.Contains(".com"))
+            response = UserController.checkPassword(TbPassword.Text);
+            if (!string.IsNullOrEmpty(response))
             {
-                showError("Email must end with .com");
+                showError(response);
                 return;
             }
 
-            if (!Male.Checked && !Female.Checked)
+            response = UserController.checkConfirmPassword(TbConfirmPassword.Text, TbPassword.Text);
+            if (!string.IsNullOrEmpty(response))
             {
-                showError("Gender must be chosen and cannot be empty");
+                showError(response);
                 return;
             }
 
-            if (string.IsNullOrEmpty(TbPassword.Text))
+            response = UserController.checkDOB(TbDOB.Text);
+            if (!string.IsNullOrEmpty(response))
             {
-                showError("Password cannot be empty!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(TbConfirmPassword.Text))
-            {
-                showError("Confirmation password cannot be empty!");
-                return;
-            }
-
-            if (TbConfirmPassword.Text != TbPassword.Text)
-            {
-                showError("Passwords must match!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(TbDOB.Text))
-            {
-                showError("Date of birth cannot be empty");
+                showError(response);
                 return;
             }
 
@@ -80,6 +69,7 @@ namespace MakeMeUpzz.View
                 showError("Invalid date format. Please use yyyy-MM-dd.");
                 return;
             }
+
 
             int newId = userRepo.generateId();
             String newUsername = TbUsername.Text;
