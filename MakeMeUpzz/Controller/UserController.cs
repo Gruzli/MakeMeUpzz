@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MakeMeUpzz.Factory
+namespace MakeMeUpzz.Controller
 {
-    public class Factory
+    public class UserController
     {
     }
 }
