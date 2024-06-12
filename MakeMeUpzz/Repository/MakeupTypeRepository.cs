@@ -1,4 +1,5 @@
 ﻿using MakeMeUpzz.Model;
+using MakeMeUpzz.Repository;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -7,7 +8,7 @@ namespace MakeMeUpzz.Repositories
 {
     public class MakeupTypeRepository
     {
-        private Database1Entities2 db = new Database1Entities2();
+        private static Database1Entities2 db = DatabaseSingleton.GetInstance();
 
         public List<MakeupType> GetAllMakeupTypes()
         {

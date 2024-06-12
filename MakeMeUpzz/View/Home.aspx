@@ -9,16 +9,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="navbar" id="customer-nav">
-            <div>
-                <a href="Login.aspx">Order Makeup</a>
-                <a href="Login.aspx">History</a>
-                
-            </div>
-            <div>
-                <asp:Button ID="profileBtn" runat="server" Text="Profile" />
-                <asp:Button ID="logoutBtn" runat="server" Text="Logout" OnClick="logoutBtn_Click"/>
-            </div>
+        <div class="navbar">
+            <asp:Button ID="orderMakeupBtn" runat="server" Text="Order Makeup" />
+            <asp:Button ID="historyBtn" runat="server" Text="History" />
+
+            <asp:Button ID="homeBtn" runat="server" Text="Home" />
+            <asp:Button ID="manageMakeupBtn" runat="server" Text="Manage Makeup" />
+            <asp:Button ID="orderQueueBtn" runat="server" Text="Order Queue" />
+            <asp:Button ID="transactionReportBtn" runat="server" Text="Transaction Report" />
+
+            <asp:Button ID="profileBtn" runat="server" Text="Profile" />
+            <asp:Button ID="logoutBtn" runat="server" Text="Logout" OnClick="logoutBtn_Click"/>
         </div>
         <div>
             <asp:Label ID="roleLbl" runat="server" Text="Role"></asp:Label>

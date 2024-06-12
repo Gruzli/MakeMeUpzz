@@ -8,7 +8,7 @@ namespace MakeMeUpzz.Repository
 {
     public class UserRepository
     {
-        private Database1Entities2 db = new Database1Entities2();
+        private static Database1Entities2 db = DatabaseSingleton.GetInstance();
 
         public int generateId()
         {
