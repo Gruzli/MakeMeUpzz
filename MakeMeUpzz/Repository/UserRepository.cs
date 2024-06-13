@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web;
+using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace MakeMeUpzz.Repository
 {
@@ -19,6 +21,29 @@ namespace MakeMeUpzz.Repository
         public void InputRegisterUser(User user)
         {
             db.Users.Add(user);
+            db.SaveChanges();
+        }
+
+        public void UpdateDataUser(int id, string name, string gender, string password, string email, DateTime dob, string role)
+        {
+            User user = db.Users.Find(id);
+            user.UserID = id;
+            user.Username = name;
+            user.UserGender = gender;
+            user.UserPassword = password;
+            user.UserEmail = email;
+            user.UserDOB = dob;
+            user.UserRole = role;
+
+            db.SaveChanges();
+        }
+
+        public void UpdatePasswordUser(int id, string new_password)
+        {
+            User user = db.Users.Find(id);
+            user.UserID = id;
+            user.UserPassword = new_password;
+
             db.SaveChanges();
         }
 

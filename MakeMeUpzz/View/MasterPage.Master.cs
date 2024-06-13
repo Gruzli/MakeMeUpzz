@@ -48,5 +48,10 @@ namespace MakeMeUpzz.View
         {
             Response.Redirect("HomePage.aspx");
         }
+
+        protected void profileBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profile.aspx");
+        }
     }
 }
