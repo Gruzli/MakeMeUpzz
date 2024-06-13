@@ -38,17 +38,26 @@ namespace MakeMeUpzz.View
 
         }
 
-        protected void insertMakeupBtn_Click(object sender, EventArgs e)
+        protected void gotoInsertMakeupBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("InsertMakeup.aspx");
         }
 
-        protected void insertMakeupTypeBtn_Click(object sender, EventArgs e)
+        protected void makeupGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            GridViewRow row = makeupGridView.SelectedRow;
+            string makeupId = row.Cells[0].Text;
+            Response.Redirect("UpdateMakeup.aspx?makeupId=" + makeupId);
         }
 
-        protected void insertMakeupBrandBtn_Click(object sender, EventArgs e)
+        protected void makeupGridView_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridViewRow row = makeupGridView.Rows[e.NewEditIndex];
+            string makeupId = row.Cells[0].Text.ToString();
+            Response.Redirect("UpdateMakeup.aspx?makeupId=" + makeupId);
+        }
+
+        protected void makeupGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
 
         }

@@ -48,5 +48,10 @@ namespace MakeMeUpzz.Repositories
             int lastId = db.MakeupBrands.OrderByDescending(x => x.MakeupBrandID).Select(x => x.MakeupBrandID).FirstOrDefault();
             return lastId + 1;
         }
+
+        public MakeupBrand GetMakeupBrandByName(string name)
+        {
+            return db.MakeupBrands.Where(x => x.MakeupBrandName == name).FirstOrDefault();
+        }
     }
 }

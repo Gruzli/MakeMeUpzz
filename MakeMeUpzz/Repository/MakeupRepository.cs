@@ -22,7 +22,6 @@ namespace MakeMeUpzz.Repositories
 
         public void AddMakeup(Makeup makeup)
         {
-            makeup.MakeupID = GenerateMakeupId();
             db.Makeups.Add(makeup);
             db.SaveChanges();
         }
@@ -43,7 +42,7 @@ namespace MakeMeUpzz.Repositories
             }
         }
 
-        private int GenerateMakeupId()
+        public int GenerateMakeupId()
         {
             int lastId = db.Makeups.OrderByDescending(x => x.MakeupID).Select(x => x.MakeupID).FirstOrDefault();
             return lastId + 1;
