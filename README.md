@@ -12,9 +12,9 @@ The project consists of several layers to ensure a clean separation of concerns 
 
 # User Roles and Permissions
 There are three types of users in the application:
-Admin: Can manage products, view and handle orders, and manage customer data.
-Customer: Can browse products, place orders, view order history, and manage their profile.
-Guest: Can register and log in to the application.
+- Admin: Can manage products, view and handle orders, and manage customer data.
+- Customer: Can browse products, place orders, view order history, and manage their profile.
+- Guest: Can register and log in to the application.
 
 # Features and Pages
 **General Features**
