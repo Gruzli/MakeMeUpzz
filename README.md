@@ -18,15 +18,15 @@ There are three types of users in the application:
 
 # Features and Pages
 **General Features**
-Navigation Bar: Provides easy navigation for logged-in users based on their role.
+- Navigation Bar: Provides easy navigation for logged-in users based on their role.
 **Admin Features**
-Manage Makeup: View, insert, update, and delete makeup products, types, and brands.
-Handle Transactions: View and manage ongoing transactions.
-View Transaction Reports: Generate and view sales reports using Crystal Reports.
+- Manage Makeup: View, insert, update, and delete makeup products, types, and brands.
+- Handle Transactions: View and manage ongoing transactions.
+- View Transaction Reports: Generate and view sales reports using Crystal Reports.
 **Customer Features**
-Order Makeup: Browse and order makeup products.
-View Transactions History: View past orders and transaction details.
-Profile Management: Update profile information and change password.
+- Order Makeup: Browse and order makeup products.
+- View Transactions History: View past orders and transaction details.
+- Profile Management: Update profile information and change password.
 **Guest Features**
-Login: Access the application by logging in with valid credentials.
-Register: Create a new customer account.
+- Login: Access the application by logging in with valid credentials.
+- Register: Create a new customer account.
