@@ -3,13 +3,12 @@ MakeMeUpzz is a web-based application designed for selling makeup and skincare p
 
 # Project Structure
 The project consists of several layers to ensure a clean separation of concerns and maintainable code:
-
-View Layer: Responsible for displaying information to users and interpreting their commands.
-Controller Layer: Validates input from the view layer and delegates requests for further processing.
-Handler Layer: Handles business logic and interacts with the repository layer for database operations.
-Repository Layer: Provides access to the database and models, encapsulating data manipulation.
-Factory Layer: Manages the creation of complex objects, ensuring consistent state.
-Model Layer: Represents business concepts and handles data using the Entity Framework tool.
+- View Layer: Responsible for displaying information to users and interpreting their commands.
+- Controller Layer: Validates input from the view layer and delegates requests for further processing.
+- Handler Layer: Handles business logic and interacts with the repository layer for database operations.
+- Repository Layer: Provides access to the database and models, encapsulating data manipulation.
+- Factory Layer: Manages the creation of complex objects, ensuring consistent state.
+- Model Layer: Represents business concepts and handles data using the Entity Framework tool.
 
 # User Roles and Permissions
 There are three types of users in the application:
