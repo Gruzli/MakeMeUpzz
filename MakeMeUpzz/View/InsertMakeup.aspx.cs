@@ -13,9 +13,9 @@ namespace MakeMeUpzz.View
 {
     public partial class InsertMakeup : System.Web.UI.Page
     {
+        MakeupRepository makeupRepo = new MakeupRepository();
         MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
         MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
-        MakeupRepository makeupRepo = new MakeupRepository();
         InsertMakeupFactory insertMakeupFactory = new InsertMakeupFactory();
         MakeupController makeupController = new MakeupController();
 
@@ -43,11 +43,6 @@ namespace MakeMeUpzz.View
             Err.Visible = false;
         }
 
-        protected InsertMakeupFactory GetInsertMakeupFactory()
-        {
-            return insertMakeupFactory;
-        }
-
         protected void backBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("ManageMakeup.aspx");
@@ -55,6 +50,7 @@ namespace MakeMeUpzz.View
 
         protected void insertMakeupBtn_Click(object sender, EventArgs e)
         {
+            // Validation
             string response = MakeupController.checkMakeupName(makeupNameTxt.Text);
             if (!string.IsNullOrEmpty(response))
             {
@@ -94,21 +90,22 @@ namespace MakeMeUpzz.View
                 return;
             }
 
+            // Retrieve data
             string name = makeupNameTxt.Text;
             int price = Int32.Parse(makeupPriceTxt.Text);
             int weight = Int32.Parse(makeupWeightTxt.Text);
             string typeName = makeupTypeDdl.SelectedValue;
             string brandName = makeupBrandDdl.SelectedValue;
 
+            int newId = makeupRepo.GenerateMakeupId();
+
             MakeupType makeupType = makeupTypeRepo.GetMakeupTypeByName(typeName);
             MakeupBrand makeupBrand = makeupBrandRepo.GetMakeupBrandByName(brandName);
 
-            int newId = makeupRepo.GenerateMakeupId();
-
+            // Insert data
             Makeup makeup = InsertMakeupFactory.Create(newId, name, price, weight, makeupType.MakeupTypeID, makeupBrand.MakeupBrandID);
 
             makeupRepo.AddMakeup(makeup);
-
             Response.Redirect("ManageMakeup.aspx");
         }
 

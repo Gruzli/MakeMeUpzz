@@ -26,9 +26,14 @@ namespace MakeMeUpzz.Controller
         public static String checkMakeupPrice(string price)
         {
             String response = "";
+            bool isNumeric = int.TryParse(price, out int n);
             if (price.Length < 1)
             {
                 response = "Makeup price cannot be empty!";
+            }
+            else if(!isNumeric)
+            {
+                response = "Makeup price must be a number!";
             }
             else
             {
@@ -45,9 +50,14 @@ namespace MakeMeUpzz.Controller
         public static String checkMakeupWeight(string weight)
         {
             String response = "";
+            bool isNumeric = int.TryParse(weight, out int n);
             if (weight.Length < 1)
             {
                 response = "Makeup weight cannot be empty!";
+            }
+            else if (!isNumeric)
+            {
+                response = "Makeup weight must be a number!";
             }
             else
             {

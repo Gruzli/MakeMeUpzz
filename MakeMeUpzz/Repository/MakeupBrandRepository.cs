@@ -1,5 +1,6 @@
 ﻿using MakeMeUpzz.Model;
 using MakeMeUpzz.Repository;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace MakeMeUpzz.Repositories
 
         public List<MakeupBrand> GetAllMakeupBrands()
         {
-            return db.MakeupBrands.ToList();
+            // Return all makeup brands descending based on rating
+            return db.MakeupBrands.OrderByDescending(x => x.MakeupBrandRating).ToList();
         }
 
         public MakeupBrand GetMakeupBrandById(int id)
@@ -22,28 +24,38 @@ namespace MakeMeUpzz.Repositories
 
         public void AddMakeupBrand(MakeupBrand makeupBrand)
         {
-            makeupBrand.MakeupBrandID = GenerateMakeupBrandId();
             db.MakeupBrands.Add(makeupBrand);
             db.SaveChanges();
         }
 
-        public void UpdateMakeupBrand(MakeupBrand makeupBrand)
+        public void UpdateMakeupBrand(int id, string name, int rating)
         {
-            db.Entry(makeupBrand).State = EntityState.Modified;
+            MakeupBrand makeupBrand = db.MakeupBrands.Find(id);
+            makeupBrand.MakeupBrandName = name;
+            makeupBrand.MakeupBrandRating = rating;
+
             db.SaveChanges();
         }
 
-        public void DeleteMakeupBrand(int id)
+        public string DeleteMakeupBrand(int id)
         {
-            var makeupBrand = db.MakeupBrands.Find(id);
-            if (makeupBrand != null)
+            MakeupBrand makeupBrand = db.MakeupBrands.Find(id);
+            String response = "";
+            bool isUsed = db.Makeups.Any(x => x.MakeupBrandID == id);
+            if (makeupBrand != null && !isUsed)
             {
                 db.MakeupBrands.Remove(makeupBrand);
                 db.SaveChanges();
+                response = "Makeup brand has been deleted!";
             }
+            else
+            {
+                response = "Please check the used brand first!";
+            }
+            return response;
         }
 
-        private int GenerateMakeupBrandId()
+        public int GenerateMakeupBrandId()
         {
             int lastId = db.MakeupBrands.OrderByDescending(x => x.MakeupBrandID).Select(x => x.MakeupBrandID).FirstOrDefault();
             return lastId + 1;
