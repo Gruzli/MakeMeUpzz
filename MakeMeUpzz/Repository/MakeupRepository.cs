@@ -1,5 +1,6 @@
 ﻿using MakeMeUpzz.Model;
 using MakeMeUpzz.Repository;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,28 +23,42 @@ namespace MakeMeUpzz.Repositories
 
         public void AddMakeup(Makeup makeup)
         {
-            makeup.MakeupID = GenerateMakeupId();
             db.Makeups.Add(makeup);
             db.SaveChanges();
         }
 
-        public void UpdateMakeup(Makeup makeup)
+        public void UpdateMakeup(int id, string name, int price, int weight, MakeupType type, MakeupBrand brand)
         {
-            db.Entry(makeup).State = EntityState.Modified;
+            Makeup makeup = db.Makeups.Find(id);
+            makeup.MakeupName = name;
+            makeup.MakeupPrice = price;
+            makeup.MakeupWeight = weight;
+            makeup.MakeupType = type;
+            makeup.MakeupBrand = brand;
+
             db.SaveChanges();
         }
 
-        public void DeleteMakeup(int id)
+        public string DeleteMakeup(int id)
         {
-            var makeup = db.Makeups.Find(id);
-            if (makeup != null)
+            Makeup makeup = db.Makeups.Find(id);
+            String response = "";
+            bool isUsed = db.Carts.Any(x => x.MakeupID == id) || 
+                          db.TransactionDetails.Any(x => x.MakeupID == id);
+            if (makeup != null && !isUsed)
             {
                 db.Makeups.Remove(makeup);
                 db.SaveChanges();
+                response = "Makeup has been deleted!";
             }
+            else
+            {
+                response = "Please check the used makeup first!";
+            }
+            return response;
         }
 
-        private int GenerateMakeupId()
+        public int GenerateMakeupId()
         {
             int lastId = db.Makeups.OrderByDescending(x => x.MakeupID).Select(x => x.MakeupID).FirstOrDefault();
             return lastId + 1;

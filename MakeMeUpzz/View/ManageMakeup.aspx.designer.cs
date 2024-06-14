@@ -15,31 +15,22 @@ namespace MakeMeUpzz.View
     {
 
         /// <summary>
-        /// insertMakeupBtn control.
+        /// Err control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button insertMakeupBtn;
+        protected global::System.Web.UI.WebControls.Label Err;
 
         /// <summary>
-        /// insertMakeupTypeBtn control.
+        /// gotoInsertMakeupBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button insertMakeupTypeBtn;
-
-        /// <summary>
-        /// insertMakeupBrandBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button insertMakeupBrandBtn;
+        protected global::System.Web.UI.WebControls.Button gotoInsertMakeupBtn;
 
         /// <summary>
         /// makeupGridView control.
@@ -51,6 +42,15 @@ namespace MakeMeUpzz.View
         protected global::System.Web.UI.WebControls.GridView makeupGridView;
 
         /// <summary>
+        /// gotoInsertTypeBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button gotoInsertTypeBtn;
+
+        /// <summary>
         /// makeupTypeGridView control.
         /// </summary>
         /// <remarks>
@@ -58,6 +58,15 @@ namespace MakeMeUpzz.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView makeupTypeGridView;
+
+        /// <summary>
+        /// gotoInsertBrandBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button gotoInsertBrandBtn;
 
         /// <summary>
         /// makeupBrandGridView control.
